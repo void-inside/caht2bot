@@ -98,7 +98,7 @@ class Whatsapp2Bot:
                     self.chat_matrix.append([interaction[0], '.'.join(interaction[1:])])
 
 
-    def set_params(self, in_file, target_name, small_sample=False):
+    def set_params(self, in_file, target_name, small_sample=True):
 
         self._small_sample = small_sample
         self._file = in_file
@@ -124,7 +124,7 @@ class Whatsapp2Bot:
         # Train bot
         if self._verbose:
             for i,x in enumerate(self.chat_matrix):
-                print('{} de {}'.format(i, len(self.chat_matrix)))
+                print('{} of {}'.format(i, len(self.chat_matrix)))
                 trainer.train(x)
         else:
             [trainer.train(x) for x in self.chat_matrix]
