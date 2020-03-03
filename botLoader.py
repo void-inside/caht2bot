@@ -9,9 +9,11 @@ class Bot:
     def __init__(self, name):
 
         if not os.path.isfile(os.path.join(SAVE_PATH, name + '.sqlite3')):
-            print('[!!] Couldnt find the bot...')
+            print('[!!] Couldnt find a bot named %s' % name)
+            self.ok = False
             return
         
+        self.ok = True
         self._name = name
         self._bot = ChatBot(
             name,
@@ -19,8 +21,9 @@ class Bot:
             database_uri='sqlite:///' + os.path.join(SAVE_PATH, name + '.sqlite3')
             )
 
+
     def interact(self, s):
-        return self._name + ':' + str(self._bot.get_response(s))
+        return '[' + self._name + '] ' + str(self._bot.get_response(s))
 
 
 if __name__ == "__main__":

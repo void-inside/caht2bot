@@ -140,6 +140,6 @@ class Whatsapp2Bot:
 if __name__ == "__main__":
     
     wb = Whatsapp2Bot(True)
-    wb.set_params('chat.txt', 'Rocioo Mo 🙈🙈🙈')
+    wb.set_params('chat.txt', 'test')
     wb.gather_data()
     bot = wb.make_bot()
